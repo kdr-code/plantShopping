@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
-import { useDispatch } from 'react-redux';
-import { addItem } from '../path/to/CartSlice'; // adjust the path to your CartSlice
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem } from './CartSlice';
 
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
@@ -14,7 +14,7 @@ function ProductList({ onHomeClick }) {
     dispatch(addItem(plant)); // Add product to Redux cart
     setAddedToCart(prev => ({ ...prev, [plant.name]: true })); // Mark as added locally
 };
-
+    
     const plantsArray = [
         {
             category: "Air Purifying Plants",
